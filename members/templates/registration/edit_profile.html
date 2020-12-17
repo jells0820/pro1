@@ -1,0 +1,10 @@
+<h1>Edit Settings</h1>
+<br>
+{{ user.profile.bio }}
+<br>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>Update Profile</button>
+</form>

@@ -1,0 +1,27 @@
+{% extends 'qogether/base.html' %}
+{% block content %}
+{% load static %}
+<link rel='stylesheet' href="{% static 'qogether/css/a_list.css' %}">
+
+<h1 class="a_list_title">{{ selected_question.question_text }} <a href="{% url 'q_list' %}">List</a></h1>
+
+<div class="a_list_list">
+<ul>
+  {% for article in latest_article_list %}
+    <li><a href="{% url 'article' selected_question.id article.id %}">{{ article.title }}</a>
+      {% if user.is_authenticated %}
+        {% if user.id == article.author.id %}
+         - <a href="{% url 'update_article' article.pk %}">Edit</a>
+         - <a href="{% url 'delete_article' selected_question.id article.pk %}">Delete</a>
+        {% endif %}
+      {% endif %}
+       by {{ article.author.first_name }} {{ article.author.last_name }}</li>
+  {% endfor %}
+</ul>
+</div>
+
+<div class="add_article">
+<a href="{% url 'add_article' selected_question.id %}">Add Article</a> <br>
+</div>
+
+{% endblock %}

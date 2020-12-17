@@ -1,0 +1,24 @@
+{% extends 'qogether/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="">
+    <p>{{ comment.content }}</p>
+    <footer>by {{ comment.user }} | {{ comment.pub_date }} | {% if comment.children.count > 0 %}{{ comment.children.count }} Comment{% if comment.children.count > 1 %}s{% endif %} | {%endif %}</footer>
+    <hr>
+    <div>
+      {% for child_comment in comment.children %}
+        <blockquote>
+          <p>{{ child_comment.content }}</p>
+          <footer>by {{ child_comment.user }} | {{ child_comment.pub_date }}</footer>
+          <hr>
+        </blockquote>
+      {% endfor %}
+      <form action="." method="post"> {% csrf_token %}
+        {{ comment_form }}
+        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+        <input type="submit" value="Reply" class=''>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

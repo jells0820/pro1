@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+{% load static %}
+<link rel='stylesheet' href="{% static 'qogether/css/add_question.css' %}">
+
+<h1 class="add_question_title">Add Question</h1>
+
+<div class="add_question_question">
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>Ask</button>
+</form>
+{% else %}
+
+You are not allowed here!
+
+{% endif %}
+</div>

@@ -1,0 +1,19 @@
+{% if user.is_authenticated %}
+  {% if user.id == article.author.id %}
+<h1>update article</h1>
+
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form.as_p }}
+  <button>Update</button>
+</form>
+  {% else %}
+  You are not allowed here!
+  {% endif %}
+{% else %}
+
+You are not allowed here!
+
+{% endif %}

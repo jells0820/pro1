@@ -1,0 +1,27 @@
+{% block content %}
+{% endblock %}
+{% load static %}
+
+<br>
+<div class="additional_info">
+{% if user.is_authenticated %}
+<a href="{% url 'add_question' %}">Add Question</a> <br>
+<a href="{% url 'logout' %}">Logout</a>
+<br>
+<a href="{% url 'edit_profile' %}">Edit Settings</a>
+<br>
+  {% if user.profile.id %}
+    <a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
+    <a href="{% url 'show_profile_page' user.profile.id %}">Profile Page</a>
+  {% else %}
+    <meta http-equiv="Refresh" content="0; url='{% url 'create_profile_page' %}'" />
+    <!--<a href="{% url 'create_profile_page' %}">Create Profile</a>-->
+  {% endif %}
+
+
+
+{% else %}
+<a href="{% url 'register' %}">Register</a>
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+</div>

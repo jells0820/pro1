@@ -1,0 +1,48 @@
+.article_title {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.article_edit_delete{
+  text-align: right;
+}
+
+.article_article {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.article_profile{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.article_like{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.article_comments{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.additional_info {
+  text-align: right;
+  padding-right: 20px;
+  margin-right: 445px;
+}
+
+.add_article {
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 465px;
+}

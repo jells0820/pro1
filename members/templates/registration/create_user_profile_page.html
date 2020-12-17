@@ -1,0 +1,14 @@
+{% if user.is_authenticated %}
+<h1>Create A New Profile Page</h1>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>Create Profile Page</button>
+</form>
+
+{% else %}
+
+You are not allowed here!
+
+{% endif %}

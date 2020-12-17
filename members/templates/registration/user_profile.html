@@ -1,0 +1,32 @@
+{% extends 'qogether/base.html' %}
+{% load static %}
+{% block content %}
+<h1>User Profile</h1>
+
+{% if page_user.profile_pic %}
+<img src="{{ page_user.profile_pic.url }}" width=100 height=100>
+{% else %}
+<img src="{% static 'qogether/images/default_profile_image.png' %}" width=100 height=100>
+{% endif %}
+{{ page_user.user.first_name }} {{ page_user.user.last_name }}
+<br>
+<a href="{% url 'show_profile_page' page_user.id %}">Profile Page</a> |
+{% if page_user.website_url %}
+<a href="{{ page_user.website_url }}">| Website</a>
+{% endif %}
+{% if page_user.facebook_url %}
+| <a href="{{ page_user.facebook_url }}">Facebook</a>
+{% endif %}
+{% if page_user.twitter_url %}
+| <a href="{{ page_user.twitter_url }}">Twitter</a>
+{% endif %}
+{% if page_user.instagram_url %}
+| <a href="{{ page_user.instagram_url }}">Instagram</a>
+{% endif %}
+{% if page_user.pinterest_url %}
+| <a href="{{ page_user.pinterest_url }}">Pinterest</a>
+{% endif %}
+<p>{{ page_user.bio }}</p>
+
+
+{% endblock %}

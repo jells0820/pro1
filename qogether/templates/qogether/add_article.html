@@ -1,0 +1,29 @@
+{% if user.is_authenticated %}
+{% load static %}
+<link rel='stylesheet' href="{% static 'qogether/css/add_article.css' %}">
+
+<h2 class="add_article_question">{{ question_text }}</h2>
+
+<div class="add_article_article">
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form.as_p }}
+  <button>Write</button>
+</form>
+<script>
+  var question = "{{ question_id }}"
+  document.getElementById("question").value
+    = question;
+
+  var name = "{{ user.id }}";
+  document.getElementById("name").value
+    = name;
+</script>
+
+{% else %}
+
+You are not allowed here!
+
+{% endif %}
+</div>

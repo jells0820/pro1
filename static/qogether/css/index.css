@@ -1,0 +1,18 @@
+#index_title {
+  margin-top: 200px;
+  text-align: center;
+  color: black;
+  font-size: 120px;
+}
+
+#search_bar {
+  text-align: center;
+  margin:0 auto;
+  padding: 10px 10px;
+}
+
+.additional_info {
+  text-align: right;
+  padding: 20px;
+  margin-right: 300px;
+}
